@@ -18,6 +18,7 @@ jenkins_jar_location: /opt/jenkins-cli.jar
 jenkins_url_prefix: ""
 jenkins_options: ""
 jenkins_java_options: "-Djenkins.install.runSetupWizard=false"
+jenkins_listen_address: "0.0.0.0"
 
 # Plugin list can use the plugin name, or a name/version dict.
 jenkins_plugins: []
@@ -49,7 +50,8 @@ jenkins_init_changes:
     value: "{{ jenkins_url_prefix }}"
   - option: "JENKINS_PORT"
     value: "{{ jenkins_http_port }}"
-
+  - option: "JENKINS_LISTEN_ADDRESS"
+    value: "{{ jenkins_listen_address }}"
 
 # If Jenkins is behind a proxy, configure this.
 jenkins_proxy_host: ""

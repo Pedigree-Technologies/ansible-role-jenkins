@@ -28,6 +28,10 @@ The Jenkins home directory which, amongst others, is being used for storing arti
 
 The HTTP port for Jenkins' web interface.
 
+    jenkins_listen_address: 0.0.0.0
+
+The IP address Jenkins listens on for HTTP requests. Default is all interfaces (0.0.0.0).
+
     jenkins_admin_username: admin
     jenkins_admin_password: admin
 
@@ -117,6 +121,8 @@ Extra Java options for the Jenkins launch command configured via `JENKINS_JAVA_O
         value: "{{ jenkins_url_prefix }}"
       - option: "JENKINS_PORT"
         value: "{{ jenkins_http_port }}"
+      - option: "JENKINS_LISTEN_ADDRESS"
+        value: "{{ jenkins_listen_address }}"
 
 Changes made to the Jenkins systemd override.conf file; the default set of changes set the configured URL prefix, Jenkins home directory, Jenkins port and adds the configured Jenkins and Java options for Jenkins' startup. You can add other option/value pairs if you need to set other options for the Jenkins systemd override.conf file.
 
