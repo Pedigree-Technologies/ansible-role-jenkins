@@ -7,12 +7,13 @@
     jenkins_plugins:
       - ghprb
       - greenballs
-      - {name: cloudbees-folder, version: 6.11}
+      - {name: cloudbees-folder, version: 6.18}
     jenkins_home: /tmp/jenkins
     jenkins_plugin_timeout: 120
 
   pre_tasks:
-    - include_tasks: java-8.yml
+    - include_tasks: debian-setup.yml
+      when: ansible_os_family == 'Debian'
 
   roles:
     - geerlingguy.java
